@@ -1,5 +1,3 @@
-local settings = require('mason-nvim-dap.settings')
-
 local M = {}
 
 -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#go-using-delve-directly
@@ -24,33 +22,6 @@ M.delve = {
 		request = 'launch',
 		mode = 'test',
 		program = './${relativeFileDirname}',
-	},
-}
-
-local BASHDB_DIR = ''
-if
-	require('mason-registry').has_package('bash-debug-adapter')
-	and require('mason-registry').get_package('bash-debug-adapter'):is_installed()
-then
-	BASHDB_DIR = require('mason-registry').get_package('bash-debug-adapter'):get_install_path()
-		.. '/extension/bashdb_dir'
-end
-
-M.bash = {
-	{
-		type = 'bash',
-		request = 'launch',
-		name = 'Bash: Launch file',
-		program = '${file}',
-		cwd = '${fileDirname}',
-		pathBashdb = BASHDB_DIR .. '/bashdb',
-		pathBashdbLib = BASHDB_DIR,
-		pathBash = 'bash',
-		pathCat = 'cat',
-		pathMkfifo = 'mkfifo',
-		pathPkill = 'pkill',
-		env = {},
-		args = {},
 	},
 }
 

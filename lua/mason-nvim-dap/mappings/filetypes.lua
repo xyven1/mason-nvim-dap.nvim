@@ -1,6 +1,3 @@
-local _ = require('mason-core.functional')
-local settings = require('mason-nvim-dap.settings')
-
 local M = {
 	['bash'] = { 'sh' },
 	['chrome'] = { 'javascriptreact', 'typescriptreact', 'typescript', 'javascript' },
